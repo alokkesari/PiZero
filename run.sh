@@ -1,3 +1,4 @@
+set -e
 sudo rm `pwd`/boot/kernel.img
 echo "-------------------------Removing previous existing versions of kernel.img.-------------------------"
 sudo rm `pwd`/{main.elf,start.o,main.o}
