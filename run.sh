@@ -1,8 +1,9 @@
-set -e
+
 sudo rm `pwd`/boot/kernel.img
 echo "-------------------------Removing previous existing versions of kernel.img.-------------------------"
 sudo rm `pwd`/{main.elf,start.o,main.o}
 echo "-------------------------Removing previous existing versions of object files and executable files created from the C code.-------------------------"
+set -e
 sudo apt-get install binutils-arm-none-eabi gcc-arm-none-eabi
 echo "-------------------------Installing compiler for generating the kernel image from the Embedded C code.-------------------------"
 arm-none-eabi-as start.S -o start.o
