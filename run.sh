@@ -1,5 +1,5 @@
 sudo apt-get install libusb-1.0-0-dev
-cd usbboot && sudo make
+cd rpiboot_generator && sudo make
 sudo cp rpiboot ../rpiboot
 cd ..
 sudo rm `pwd`/boot/kernel.img
