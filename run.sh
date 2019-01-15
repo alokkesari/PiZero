@@ -1,6 +1,7 @@
 sudo apt-get install libusb-1.0-0-dev
 cd usbboot && sudo make
 sudo cp rpiboot ../rpiboot
+cd ..
 sudo rm `pwd`/boot/kernel.img
 echo "-------------------------Removing previous existing versions of kernel.img.-------------------------"
 sudo rm `pwd`/{main.elf,start.o,main.o}
@@ -15,6 +16,6 @@ echo "-------------------------Generating object file from the main program writ
 arm-none-eabi-ld start.o main.o -T ldscript -o main.elf
 echo "-------------------------Specifying the poistion of the SDRAM in ldscript where the binary file (kernel.img) will be stored.-------------------------"
 arm-none-eabi-objcopy main.elf -O binary `pwd`/boot/kernel.img
-echo "-------------------------Generating binary file from the executable file created with the description of the memory addresses of the peripherals connected.-------------------------"
+echo "-------------------------Generating binary image file from the executable file created with the description of the memory addresses of the peripherals connected.-------------------------"
 sudo ./rpiboot -d boot/
 echo "-------------------------Program uploaded. Enjoy!-------------------------"
